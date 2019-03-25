@@ -1,6 +1,5 @@
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 export AIRFLOW_HOME=~/airflow
-export VISUAL=nvim
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
 export PATH="/usr/local/opt/elasticsearch@5.5/bin:$PATH"
