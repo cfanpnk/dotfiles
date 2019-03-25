@@ -239,3 +239,10 @@ let g:tslime_always_current_session = 1
 let g:tslime_always_current_window = 1
 
 color gruvbox
+
+" ale settings
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\}
+" Only run linters named in ale_linters settings.
+let g:ale_linters_explicit = 1
