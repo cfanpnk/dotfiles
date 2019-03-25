@@ -12,6 +12,14 @@
   co = checkout
   pf = push --force-with-lease
   st = status
+  l = log --pretty=colored
+  df = diff --word-diff --color-words
+  sla = log --oneline --decorate --graph --all
+  unstage = reset
+  uncommit = reset --soft HEAD^
+  browse = !hub browse
+  compare = !hub compare
+  issues = !hub browse --issues
 [core]
   excludesfile = ~/.gitignore
   autocrlf = input
