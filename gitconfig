@@ -15,8 +15,6 @@
 [core]
   excludesfile = ~/.gitignore
   autocrlf = input
-[merge]
-  ff = only
 [commit]
   template = ~/.gitmessage
 [fetch]
@@ -27,3 +25,11 @@
   path = ~/.gitconfig.local
 [diff]
   colorMoved = zebra
+[difftool]
+  cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
+[mergetool]
+  cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustExitCode = true
+[user]
+  name = Nankai Pan
+  email = nankai.pan@roosterteeth.com

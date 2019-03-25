@@ -1,7 +1,44 @@
+if has('neovim') 
+  set inccommand=nosplit
+end
+
 set encoding=utf-8
 
 " Leader
 let mapleader = " "
+map <leader>- :wincmd _<cr>:wincmd \|<cr>
+map <leader>= :wincmd =<cr>
+map <leader>v- :VtrOpenRunner { "orientation": "v" }<cr>
+map <leader>v\ :VtrOpenRunner { "orientation": "h" }<cr>
+map <leader>vk :VtrKillRunner<cr>
+map <leader>va :VtrAttachToPane<cr>
+map <leader>fr :VtrFocusRunner<cr>
+map <leader>sq :VtrSendKeysRaw q<cr>
+map <leader>sd :VtrSendKeysRaw ^D<cr>
+map <leader>sl :VtrSendKeysRaw ^L<cr>
+map <leader>sc :VtrSendKeysRaw ^C<cr>
+map <leader>vs :VtrSendCommandToRunner<space>
+map <leader>ss :VtrSendLinesToRunner<cr>
+map <leader>p :Files<CR>
+map <leader>h :set hlsearch!<CR>
+map <leader>so :source $MYVIMRC<cr>
+map <leader>vi :tabe ~/.vimrc<cr>
+map <leader>gr "*gr
+map <leader>n :NERDTreeToggle<CR>
+map <leader>gd <C-]>
+map <leader>gt :bnext<CR>
+map <leader>gT :bprev<CR>
+map <leader>w :bdelete<CR>
+
+" Command aliases for typoed commands (accidentally holding shift too long)
+command! Q q
+command! W w
+command! Qall qall
+command! QA qall
+command! Wq wq
+command! E e"
+
+let g:airline_theme='gruvbox'
 
 set backspace=2   " Backspace deletes like most programs in insert mode
 set nobackup
@@ -13,6 +50,26 @@ set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
+set background=dark
+set termguicolors
+set textwidth=120
+set number relativenumber
+set ignorecase
+set smartcase
+set guifont=Monaco:h16
+set hlsearch
+set clipboard=unnamed
+set nofixendofline
+
+" Eazy access to the start of the line
+nmap 0 ^
+
+" automatically rebalance windows on vim resize
+autocmd VimResized * :wincmd =
+
+"Avoid scrolling when switch buffers
+autocmd! BufWinLeave * let b:winview = winsaveview()
+autocmd! BufWinEnter * if exists('b:winview') | call winrestview(b:winview) | unlet b:winview
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -102,8 +159,8 @@ if executable('ag')
 endif
 
 " Make it obvious where 80 characters is
-set textwidth=80
-set colorcolumn=+1
+set textwidth=120
+set colorcolumn=
 
 " Numbers
 set number
@@ -174,3 +231,11 @@ set diffopt+=vertical
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
+
+let test#strategy = "tslime"
+
+" tslime settings
+let g:tslime_always_current_session = 1
+let g:tslime_always_current_window = 1
+
+color gruvbox
