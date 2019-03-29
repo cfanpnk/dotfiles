@@ -6,16 +6,21 @@ export PATH="/usr/local/opt/elasticsearch@5.5/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 export LDFLAGS="-L/usr/local/opt/readline/lib"
 export CPPFLAGS="-I/usr/local/opt/readline/include"
-export ZPLUG_HOME=/usr/local/opt/zplug
+
+# oh-my-zsh set up
+plugins=(autojump rails bundler rbenv thefuck vi-mode zsh_reload web-search)
+export ZSH=$HOME/.oh-my-zsh
+source $ZSH/oh-my-zsh.sh
+ZSH_THEME="powerlevel9k/powerlevel9k"
+autoload -U compinit && compinit
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fpath=(/usr/local/share/zsh-completions $fpath)
 
 [ -f /usr/local/etc/profile.d/autojump.sh  ] && . /usr/local/etc/profile.d/autojump.sh
 
 set -g @continuum-restore 'on'
 set -g @continuum-boot-options 'iterm'
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $ZPLUG_HOME/init.zsh
-fpath=(/usr/local/share/zsh-completions $fpath)
 
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 eval "$(rbenv init -)"
@@ -24,6 +29,55 @@ eval "$(rbenv init -)"
 for function in ~/.zsh/functions/*; do
   source $function
 done
+
+POWERLEVEL9K_MODE='nerdfont-complete'
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
+POWERLEVEL9K_TIME_BACKGROUND="black"
+POWERLEVEL9K_TIME_FOREGROUND="249"
+# POWERLEVEL9K_DIR_PATH_SEPARATOR=" $(print_icon "LEFT_SUBSEGMENT_SEPARATOR") "
+POWERLEVEL9K_TIME_FORMAT="\UF43A %D{%I:%M  \UF133  %m.%d.%y}"
+POWERLEVEL9K_RBENV_BACKGROUND="black"
+POWERLEVEL9K_RBENV_FOREGROUND="249"
+POWERLEVEL9K_RBENV_VISUAL_IDENTIFIER_COLOR="red"
+POWERLEVEL9K_RUBY_ICON="\UF219 "
+POWERLEVEL9K_STATUS_VERBOSE=false
+POWERLEVEL9K_VCS_CLEAN_FOREGROUND='black'
+POWERLEVEL9K_VCS_CLEAN_BACKGROUND='green'
+POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='black'
+POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='yellow'
+POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='white'
+POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='black'
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND='black'
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND='blue'
+POWERLEVEL9K_FOLDER_ICON=''
+POWERLEVEL9K_STATUS_OK_IN_NON_VERBOSE=true
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0
+POWERLEVEL9K_VCS_UNTRACKED_ICON='\u25CF'
+POWERLEVEL9K_VCS_UNSTAGED_ICON='\u00b1'
+POWERLEVEL9K_VCS_INCOMING_CHANGES_ICON='\u2193'
+POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON='\u2191'
+POWERLEVEL9K_VCS_COMMIT_ICON="\uf417"
+# POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%F{blue}\u256D\u2500%f"
+# POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{blue}\u2570\uf460%f "
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(rbenv ssh root_indicator dir dir_writable vcs vi_mode)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status)
+HIST_STAMPS="mm/dd/yyyy"
+zle-keymap-select () {
+  zle reset-prompt
+  zle -R
+}
+
+zle -N zle-keymap-select
+
+# oh-my-zsh set up
+export ZSH=$HOME/.oh-my-zsh
+source $ZSH/oh-my-zsh.sh
+ZSH_THEME="powerlevel9k/powerlevel9k"
+DEFAULT_USER=npan
+bindkey -v
+DISABLE_AUTO_TITLE="true"
 
 # extra files in ~/.zsh/configs/pre , ~/.zsh/configs , and ~/.zsh/configs/post
 # these are loaded first, second, and third, respectively.
@@ -62,14 +116,3 @@ _load_settings "$HOME/.zsh/configs"
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
-source ~/.zplug/init.zsh
-
-zplug 'mafredri/zsh-async'
-zplug 'sindresorhus/pure'
-zplug 'zsh-users/zsh-syntax-highlighting', defer:2
-zplug 'zsh-users/zsh-completions', defer:2
-
-zplug load
-
-autoload -U promptinit; promptinit
-prompt pure
