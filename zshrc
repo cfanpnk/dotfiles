@@ -8,14 +8,12 @@ export LDFLAGS="-L/usr/local/opt/readline/lib"
 export CPPFLAGS="-I/usr/local/opt/readline/include"
 
 # oh-my-zsh set up
-plugins=(autojump rails bundler rbenv thefuck vi-mode zsh_reload web-search)
+ZSH_THEME="powerlevel9k/powerlevel9k"
+plugins=(autojump rails bundler rbenv thefuck web-search)
 export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
-ZSH_THEME="powerlevel9k/powerlevel9k"
+DISABLE_AUTO_TITLE="true"
 autoload -U compinit && compinit
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fpath=(/usr/local/share/zsh-completions $fpath)
 
 [ -f /usr/local/etc/profile.d/autojump.sh  ] && . /usr/local/etc/profile.d/autojump.sh
 
@@ -71,13 +69,6 @@ zle-keymap-select () {
 
 zle -N zle-keymap-select
 
-# oh-my-zsh set up
-export ZSH=$HOME/.oh-my-zsh
-source $ZSH/oh-my-zsh.sh
-ZSH_THEME="powerlevel9k/powerlevel9k"
-DEFAULT_USER=npan
-bindkey -v
-DISABLE_AUTO_TITLE="true"
 
 # extra files in ~/.zsh/configs/pre , ~/.zsh/configs , and ~/.zsh/configs/post
 # these are loaded first, second, and third, respectively.
@@ -116,3 +107,6 @@ _load_settings "$HOME/.zsh/configs"
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fpath=(/usr/local/share/zsh-completions $fpath)
