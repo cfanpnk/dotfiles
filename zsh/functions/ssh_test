@@ -1,0 +1,4 @@
+function ssh_test {
+  ip=$(get_container_ip $1)
+  ssh ec2-user@$ip
+}
