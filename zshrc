@@ -1,11 +1,12 @@
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-export AIRFLOW_HOME=~/airflow
 export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
-export PATH="/usr/local/opt/elasticsearch@5.5/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 export LDFLAGS="-L/usr/local/opt/readline/lib"
 export CPPFLAGS="-I/usr/local/opt/readline/include"
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/mysql@5.7/lib"
+export CPPFLAGS="-I/usr/local/opt/mysql@5.7/include"
+export PKG_CONFIG_PATH="/usr/local/opt/mysql@5.7/lib/pkgconfig"
 
 # oh-my-zsh set up
 ZSH_THEME="powerlevel9k/powerlevel9k"
