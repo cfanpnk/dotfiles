@@ -71,6 +71,7 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'mileszs/ack.vim'
 Plug 'jgdavey/tslime.vim'
+Plug 'tpope/vim-rhubarb'
 
 if g:has_async
   Plug 'w0rp/ale'
