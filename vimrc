@@ -39,6 +39,17 @@ command! Wq wq
 command! E e"
 
 let g:airline_theme='gruvbox'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#show_tab_type = 0
+let g:airline#extensions#tabline#show_tab_count = 0
+let g:airline#extensions#tabline#exclude_preview = 0
+let g:airline#extensions#tabline#show_splits = 0
+let g:airline#extensions#tabline#alt_sep = 1
+let g:airline#extensions#tabline#show_tab_nr = 0
+" Just show the filename (no path) in the tab
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 set backspace=2   " Backspace deletes like most programs in insert mode
 set nobackup
