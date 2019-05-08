@@ -10,7 +10,7 @@ export PKG_CONFIG_PATH="/usr/local/opt/mysql@5.7/lib/pkgconfig"
 
 # oh-my-zsh set up
 ZSH_THEME="powerlevel9k/powerlevel9k"
-plugins=(autojump rails bundler rbenv thefuck web-search)
+plugins=(autojump rbenv thefuck web-search)
 export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 DISABLE_AUTO_TITLE="true"
