@@ -111,3 +111,5 @@ _load_settings "$HOME/.zsh/configs"
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fpath=(/usr/local/share/zsh-completions $fpath)
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
