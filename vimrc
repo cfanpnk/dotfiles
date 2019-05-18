@@ -71,6 +71,8 @@ set guifont=Monaco:h16
 set hlsearch
 set clipboard=unnamed
 set nofixendofline
+set undofile      " Maintain undo history between sessions
+set undodir=~/.vim/undodir
 
 " Eazy access to the start of the line
 nmap 0 ^
