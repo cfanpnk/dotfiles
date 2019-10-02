@@ -1,0 +1,3 @@
+function image-check {
+  aws ecr list-images --repository-name $1 | grep $2
+}
