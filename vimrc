@@ -259,3 +259,6 @@ let g:ale_linters = {
 \}
 " Only run linters named in ale_linters settings.
 let g:ale_linters_explicit = 1
+
+let g:go_version_warning = 0
+
