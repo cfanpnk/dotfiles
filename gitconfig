@@ -20,6 +20,7 @@
   browse = !hub browse
   compare = !hub compare
   issues = !hub browse --issues
+  mup = !git checkout master && git pull && git checkout -
 [core]
   excludesfile = ~/.gitignore
   autocrlf = input
@@ -30,14 +31,16 @@
 [rebase]
   autosquash = true
 [diff]
-    tool = Kaleidoscope
+  tool = Kaleidoscope
 [difftool "Kaleidoscope"]
   cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [merge]
-    tool = Kaleidoscope
+  ff = only
+  tool = Kaleidoscope
 [mergetool "Kaleidoscope"]
   cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
   trustExitCode = true
+  keepBackup = false
 [user]
   name = Nankai Pan
   email = nankai.pan@roosterteeth.com
