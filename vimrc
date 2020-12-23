@@ -233,6 +233,10 @@ nnoremap [r :ALEPreviousWrap<CR>
 " Magic mapping
 xnoremap . :normal .<CR>
 
+" Visual mode mapping
+vnoremap J :m '>+1'<CR>gv=gv
+vnoremap K :m '<-2'<CR>gv=gv
+
 " Set spellfile to location that is guaranteed to exist, can be symlinked to
 " Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
 set spellfile=$HOME/.vim-spell-en.utf-8.add
@@ -248,7 +252,8 @@ if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
 
-let test#strategy = "tslime"
+let test#strategy = "vtr"
+let test#ruby#use_spring_binstub = 1
 
 " tslime settings
 let g:tslime_always_current_session = 1
@@ -264,4 +269,3 @@ let g:ale_linters = {
 let g:ale_linters_explicit = 1
 
 let g:go_version_warning = 0
-

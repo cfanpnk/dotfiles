@@ -2,5 +2,5 @@ function ecs-connect {
   latest_revision=$(aws ecs list-task-definitions |grep /$1: | sed -En "s/.*:(.*)\",?$/\1/p" | tail -n 1| awk '{print
 $1}');
   echo "$1:$latest_revision"
-  ecs-local --profile=rtdev -t $1:$latest_revision -a '/bin/bash'
+  ecs-local --profile=rtdev -v -t $1:$latest_revision -a '/bin/bash'
 }

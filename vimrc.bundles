@@ -69,8 +69,9 @@ Plug 'tpope/vim-rbenv'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'mileszs/ack.vim'
-Plug 'jgdavey/tslime.vim'
 Plug 'tpope/vim-rhubarb'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 
 if g:has_async
   Plug 'w0rp/ale'
